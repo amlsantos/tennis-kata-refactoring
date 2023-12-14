@@ -62,17 +62,13 @@ public class TennisGame : ITennisGame
         switch (minusResult)
         {
             case 1:
-                score = "Advantage player1";
-                break;
+                return "Advantage player1";
             case -1:
-                score = "Advantage player2";
-                break;
+                return "Advantage player2";
             case >= 2:
-                score = "Win for player1";
-                break;
+                return "Win for player1";
             default:
-                score = "Win for player2";
-                break;
+                return "Win for player2";
         }
         return score;
     }
