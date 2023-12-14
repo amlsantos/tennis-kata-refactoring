@@ -73,9 +73,9 @@ public class TennisGame : ITennisGame
 
     private string DetermineOngoingScore(string score)
     {
-        var tempScore = 0;
         for (var i = 1; i < 3; i++)
         {
+            var tempScore = 0;
             if (i == 1) tempScore = player1Score;
             else
             {
