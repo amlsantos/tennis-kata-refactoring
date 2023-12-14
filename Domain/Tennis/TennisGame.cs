@@ -57,7 +57,6 @@ public class TennisGame : ITennisGame
 
     private string DetermineAdvantageOrWinResult()
     {
-        string score;
         var minusResult = player1Score - player2Score;
         switch (minusResult)
         {
@@ -70,7 +69,6 @@ public class TennisGame : ITennisGame
             default:
                 return "Win for player2";
         }
-        return score;
     }
 
     private string DetermineOngoingScore(string score)
