@@ -42,33 +42,38 @@ public class TennisGame : ITennisGame
 
     private string DetermineDrawResult()
     {
-        string score;
         switch (player1Score)
         {
             case 0:
-                score = "Love-All";
-                break;
+                return "Love-All";
             case 1:
-                score = "Fifteen-All";
-                break;
+                return "Fifteen-All";
             case 2:
-                score = "Thirty-All";
-                break;
+                return "Thirty-All";
             default:
-                score = "Deuce";
-                break;
+                return "Deuce";
         }
-        return score;
     }
 
     private string DetermineAdvantageOrWinResult()
     {
         string score;
         var minusResult = player1Score - player2Score;
-        if (minusResult == 1) score = "Advantage player1";
-        else if (minusResult == -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
+        switch (minusResult)
+        {
+            case 1:
+                score = "Advantage player1";
+                break;
+            case -1:
+                score = "Advantage player2";
+                break;
+            case >= 2:
+                score = "Win for player1";
+                break;
+            default:
+                score = "Win for player2";
+                break;
+        }
         return score;
     }
 
