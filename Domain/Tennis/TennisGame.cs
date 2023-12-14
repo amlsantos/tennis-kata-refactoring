@@ -23,21 +23,12 @@ public class TennisGame : ITennisGame
 
     public string GetScore()
     {
-        var score = "";
         if (player1Score == player2Score) // tie
-        {
-            score = DetermineDrawResult();
-        }
+            return DetermineDrawResult();
         else if (player1Score >= 4 || player2Score >= 4) // advantage or win
-        {
-            score = DetermineAdvantageOrWinResult();
-        }
+            return DetermineAdvantageOrWinResult();
         else // ongoing
-        {
-            score = DetermineOngoingScore();
-        }
-
-        return score;
+            return DetermineOngoingScore();
     }
 
     private string DetermineDrawResult()
