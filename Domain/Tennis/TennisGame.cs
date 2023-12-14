@@ -32,9 +32,9 @@ public class TennisGame : ITennisGame
         {
             score = DetermineAdvantageOrWinResult();
         }
-        else // 
+        else // ongoing
         {
-            score = DetermineOngoingScore(score);
+            score = DetermineOngoingScore();
         }
 
         return score;
@@ -71,12 +71,16 @@ public class TennisGame : ITennisGame
         }
     }
 
-    private string DetermineOngoingScore(string score)
+    private string DetermineOngoingScore()
     {
+        var score = string.Empty;
         for (var i = 1; i < 3; i++)
         {
             var tempScore = 0;
-            if (i == 1) tempScore = player1Score;
+            if (i == 1)
+            {
+                tempScore = player1Score;
+            }
             else
             {
                 score += "-";
