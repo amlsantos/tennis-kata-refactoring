@@ -13,8 +13,10 @@ public class Player
 
     public void AddPoint() => Score += 1;
 
-    public bool IsTie(Player otherPlayer)
+    public bool IsTie(Player otherPlayer) => Score == otherPlayer.Score;
+
+    public bool HasAdvantage(Player otherPlayer)
     {
-        return Score == otherPlayer.Score;
+        return Score >= 4 || otherPlayer.Score >= 4;
     }
 }

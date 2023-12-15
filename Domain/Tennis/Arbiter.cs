@@ -21,6 +21,7 @@ public static class Arbiter
 
     private static bool HasAdvantage(Player player1, Player player2)
     {
+        return player1.HasAdvantage(player2);
         return player1.Score >= 4 || player2.Score >= 4;
     }
 
