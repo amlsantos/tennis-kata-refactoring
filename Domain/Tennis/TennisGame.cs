@@ -65,8 +65,8 @@ public class TennisGame : ITennisGame
 
 public abstract class Result
 {
-    protected int Player1Score = 0;
-    protected int Player2Score = 0;
+    protected readonly int Player1Score;
+    protected readonly int Player2Score;
 
     protected Result(int player1Score, int player2Score)
     {
