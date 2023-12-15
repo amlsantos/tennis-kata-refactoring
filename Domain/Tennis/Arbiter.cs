@@ -15,6 +15,7 @@ public static class Arbiter
 
     private static bool IsTie(Player player1, Player player2)
     {
+        return player1.IsTie(player2);
         return player1.Score == player2.Score;
     }
 

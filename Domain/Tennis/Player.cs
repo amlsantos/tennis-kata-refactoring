@@ -12,4 +12,9 @@ public class Player
     }
 
     public void AddPoint() => Score += 1;
+
+    public bool IsTie(Player otherPlayer)
+    {
+        return Score == otherPlayer.Score;
+    }
 }
