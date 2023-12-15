@@ -7,10 +7,16 @@ public class TennisGame : ITennisGame
     private string _player1Name;
     private string _player2Name;
 
+    private Player _player1;
+    private Player _player2;
+
     public TennisGame(string player1Name, string player2Name)
     {
         _player1Name = player1Name;
         _player2Name = player2Name;
+
+        _player1 = new Player(player1Name);
+        _player2 = new Player(player2Name);
     }
 
     public void WonPoint(string playerName)
