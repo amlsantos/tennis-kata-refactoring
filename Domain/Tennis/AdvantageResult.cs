@@ -4,18 +4,9 @@ public class AdvantageResult(int player1Score, int player2Score) : Result(player
 {
     public override string GetScoreAsText()
     {
-        var minusResult = Player1Score - Player2Score;
-        switch (minusResult)
-        {
-            case 1:
-                return "Advantage player1";
-            case -1:
-                return "Advantage player2";
-            case >= 2:
-                return "Win for player1";
-            default:
-                return "Win for player2";
-        }
+        return Player1Score > Player2Score ? 
+            "Advantage player1" : 
+            "Advantage player2";
     }
 }
 
@@ -23,17 +14,8 @@ public class WinResult(int player1Score, int player2Score) : Result(player1Score
 {
     public override string GetScoreAsText()
     {
-        var minusResult = Player1Score - Player2Score;
-        switch (minusResult)
-        {
-            case 1:
-                return "Advantage player1";
-            case -1:
-                return "Advantage player2";
-            case >= 2:
-                return "Win for player1";
-            default:
-                return "Win for player2";
-        }
+        return Player1Score > player2Score ? 
+            "Win for player1" : 
+            "Win for player2";
     }
 }
