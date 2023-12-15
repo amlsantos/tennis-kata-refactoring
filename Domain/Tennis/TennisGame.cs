@@ -28,3 +28,15 @@ public class TennisGame : ITennisGame
             .GetScoreAsText();
     }
 }
+
+public class Player
+{
+    public int Score { get; init; }
+    public string Name { get; init; }
+
+    public Player(string name)
+    {
+        Name = name;
+        Score = 0;
+    }
+}
