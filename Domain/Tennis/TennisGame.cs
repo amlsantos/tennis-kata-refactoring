@@ -36,7 +36,7 @@ public class TennisGame : ITennisGame
     public string GetScore()
     {
         return Arbiter
-            .DetermineResult(_player1.Score, _player2.Score, _player1, _player2)
+            .DetermineResult(_player1, _player2)
             .GetScoreAsText();
     }
 }
