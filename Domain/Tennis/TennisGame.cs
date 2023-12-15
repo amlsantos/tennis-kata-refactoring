@@ -23,13 +23,9 @@ public class TennisGame : ITennisGame
 
     public string GetScore()
     {
-        return Arbiter.DetermineResult(_player1Score, _player2Score).GetScoreAsText();
-        
-        if (_player1Score == _player2Score)
-            return new DrawResult(_player1Score, _player2Score).GetScoreAsText();
-        if (_player1Score >= 4 || _player2Score >= 4)
-            return new AdvantageOrWinResult(_player1Score, _player2Score).GetScoreAsText();
-        return new OngoingScore(_player1Score, _player2Score).GetScoreAsText();
+        return Arbiter
+            .DetermineResult(_player1Score, _player2Score)
+            .GetScoreAsText();
     }
 }
 
