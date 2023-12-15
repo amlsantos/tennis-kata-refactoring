@@ -21,7 +21,7 @@ public class TennisGame : ITennisGame
 
     public void WonPoint(string playerName)
     {
-        if (_player1.Name == "player1")
+        if (playerName == "player1")
         {
             _player1Score += 1;
             _player1.AddPoint();
@@ -36,7 +36,7 @@ public class TennisGame : ITennisGame
     public string GetScore()
     {
         return Arbiter
-            .DetermineResult(_player1Score, _player2Score)
+            .DetermineResult(_player1.Score, _player2.Score, _player1, _player2)
             .GetScoreAsText();
     }
 }
