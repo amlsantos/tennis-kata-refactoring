@@ -23,12 +23,11 @@ public class TennisGame : ITennisGame
 
     public string GetScore()
     {
-        if (player1Score == player2Score) // tie
+        if (player1Score == player2Score)
             return DetermineDrawResult();
-        else if (player1Score >= 4 || player2Score >= 4) // advantage or win
+        if (player1Score >= 4 || player2Score >= 4)
             return DetermineAdvantageOrWinResult();
-        else // ongoing
-            return DetermineOngoingScore();
+        return DetermineOngoingScore();
     }
 
     private string DetermineDrawResult()
@@ -64,37 +63,23 @@ public class TennisGame : ITennisGame
 
     private string DetermineOngoingScore()
     {
-        var score = string.Empty;
-        for (var i = 1; i < 3; i++)
+        return GetScoreAsString(player1Score) + "-" + GetScoreAsString(player2Score);
+    }
+
+    private string GetScoreAsString(int tempScore)
+    {
+        switch (tempScore)
         {
-            var tempScore = 0;
-            if (i == 1)
-            {
-                tempScore = player1Score;
-            }
-            else
-            {
-                score += "-";
-                tempScore = player2Score;
-            }
-
-            switch (tempScore)
-            {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            case 3:
+                return "Forty";
+            default:
+                return string.Empty;
         }
-
-        return score;
     }
 }
