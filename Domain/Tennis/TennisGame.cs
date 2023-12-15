@@ -26,17 +26,3 @@ public class TennisGame : ITennisGame
             .GetScoreAsText();
     }
 }
-
-public class Player
-{
-    public int Score { get; private set; }
-    public string Name { get; }
-
-    public Player(string name)
-    {
-        Name = name;
-        Score = 0;
-    }
-
-    public void AddPoint() => Score += 1;
-}
