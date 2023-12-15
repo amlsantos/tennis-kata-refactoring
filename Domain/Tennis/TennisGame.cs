@@ -21,8 +21,7 @@ public class TennisGame : ITennisGame
 
     public string GetScore()
     {
-        return Arbiter
-            .DetermineResult(_player1, _player2)
-            .GetScoreAsText();
+        var result = Arbiter.DetermineResult(_player1, _player2);
+        return result.GetScoreAsText();
     }
 }
