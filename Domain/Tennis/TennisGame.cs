@@ -83,3 +83,17 @@ public class TennisGame : ITennisGame
         }
     }
 }
+
+abstract class Result
+{
+    protected int Player1Score = 0;
+    protected int Player2Score = 0;
+
+    protected Result(int player1Score, int player2Score)
+    {
+        Player1Score = player1Score;
+        Player2Score = player2Score;
+    }
+
+    public abstract string GetScoreAsText();
+}
