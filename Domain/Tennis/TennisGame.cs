@@ -84,7 +84,7 @@ public class TennisGame : ITennisGame
     }
 }
 
-abstract class Result
+public abstract class Result
 {
     protected int Player1Score = 0;
     protected int Player2Score = 0;
@@ -96,4 +96,23 @@ abstract class Result
     }
 
     public abstract string GetScoreAsText();
+}
+
+public class DrawResult : Result {
+    public DrawResult(int player1Score, int player2Score) : base(player1Score, player2Score) { }
+
+    public override string GetScoreAsText()
+    {
+        switch (Player1Score)
+        {
+            case 0:
+                return "Love-All";
+            case 1:
+                return "Fifteen-All";
+            case 2:
+                return "Thirty-All";
+            default:
+                return "Deuce";
+        }
+    }
 }
