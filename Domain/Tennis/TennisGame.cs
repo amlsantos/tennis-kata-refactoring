@@ -32,17 +32,7 @@ public class TennisGame : ITennisGame
 
     private string DetermineDrawResult()
     {
-        switch (_player1Score)
-        {
-            case 0:
-                return "Love-All";
-            case 1:
-                return "Fifteen-All";
-            case 2:
-                return "Thirty-All";
-            default:
-                return "Deuce";
-        }
+        return new DrawResult(_player1Score, _player2Score).GetScoreAsText();
     }
 
     private string DetermineAdvantageOrWinResult()
@@ -98,9 +88,8 @@ public abstract class Result
     public abstract string GetScoreAsText();
 }
 
-public class DrawResult : Result {
-    public DrawResult(int player1Score, int player2Score) : base(player1Score, player2Score) { }
-
+public class DrawResult(int player1Score, int player2Score) : Result(player1Score, player2Score)
+{
     public override string GetScoreAsText()
     {
         switch (Player1Score)
@@ -113,6 +102,28 @@ public class DrawResult : Result {
                 return "Thirty-All";
             default:
                 return "Deuce";
+        }
+    }
+}
+
+public class AdvantageOrWinResult : Result
+{
+    public AdvantageOrWinResult(int player1Score, int player2Score) : base(player1Score, player2Score)
+    { }
+
+    public override string GetScoreAsText()
+    {
+        var minusResult = Player1Score - Player2Score;
+        switch (minusResult)
+        {
+            case 1:
+                return "Advantage player1";
+            case -1:
+                return "Advantage player2";
+            case >= 2:
+                return "Win for player1";
+            default:
+                return "Win for player2";
         }
     }
 }
