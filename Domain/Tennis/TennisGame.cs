@@ -2,37 +2,37 @@
 
 public class TennisGame : ITennisGame
 {
-    private int player1Score = 0;
-    private int player2Score = 0;
-    private string player1Name;
-    private string player2Name;
+    private int _player1Score = 0;
+    private int _player2Score = 0;
+    private string _player1Name;
+    private string _player2Name;
 
     public TennisGame(string player1Name, string player2Name)
     {
-        this.player1Name = player1Name;
-        this.player2Name = player2Name;
+        _player1Name = player1Name;
+        _player2Name = player2Name;
     }
 
     public void WonPoint(string playerName)
     {
         if (playerName == "player1")
-            player1Score += 1;
+            _player1Score += 1;
         else
-            player2Score += 1;
+            _player2Score += 1;
     }
 
     public string GetScore()
     {
-        if (player1Score == player2Score)
+        if (_player1Score == _player2Score)
             return DetermineDrawResult();
-        if (player1Score >= 4 || player2Score >= 4)
+        if (_player1Score >= 4 || _player2Score >= 4)
             return DetermineAdvantageOrWinResult();
         return DetermineOngoingScore();
     }
 
     private string DetermineDrawResult()
     {
-        switch (player1Score)
+        switch (_player1Score)
         {
             case 0:
                 return "Love-All";
@@ -47,7 +47,7 @@ public class TennisGame : ITennisGame
 
     private string DetermineAdvantageOrWinResult()
     {
-        var minusResult = player1Score - player2Score;
+        var minusResult = _player1Score - _player2Score;
         switch (minusResult)
         {
             case 1:
@@ -63,7 +63,7 @@ public class TennisGame : ITennisGame
 
     private string DetermineOngoingScore()
     {
-        return GetScoreAsString(player1Score) + "-" + GetScoreAsString(player2Score);
+        return GetScoreAsString(_player1Score) + "-" + GetScoreAsString(_player2Score);
     }
 
     private string GetScoreAsString(int tempScore)
