@@ -16,17 +16,15 @@ public static class Arbiter
     private static bool IsTie(Player player1, Player player2)
     {
         return player1.IsTie(player2);
-        return player1.Score == player2.Score;
     }
 
     private static bool HasAdvantage(Player player1, Player player2)
     {
         return player1.HasAdvantage(player2);
-        return player1.Score >= 4 || player2.Score >= 4;
     }
 
     private static bool IsAheadByOne(Player player1, Player player2)
     {
-        return Math.Abs(player1.Score - player2.Score) == 1;
+        return player1.IsAheadByOne(player2);
     }
 }

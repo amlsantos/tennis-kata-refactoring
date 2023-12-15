@@ -19,4 +19,9 @@ public class Player
     {
         return Score >= 4 || otherPlayer.Score >= 4;
     }
+
+    public bool IsAheadByOne(Player otherPlayer)
+    {
+        return Math.Abs(Score - otherPlayer.Score) == 1;
+    }
 }
