@@ -2,8 +2,8 @@
 
 public class TennisGame : ITennisGame
 {
-    private int _player1Score = 0;
-    private int _player2Score = 0;
+    private int _player1Score;
+    private int _player2Score;
     private string _player1Name;
     private string _player2Name;
 
